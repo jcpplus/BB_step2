@@ -27,3 +27,8 @@ require.config({
 require(['jquery', 'backbone', 'js/app'], function($, Backbone, AppView) {
     var appView = new AppView();
 });
+
+require(['jquery', 'backbone', 'js/todo'], function($, Backbone, SearchView ) {
+    var searchView = new SearchView({el: $("#search_container")});
+        searchView.render({search_label: "搜索渲染"});
+});
