@@ -11,13 +11,23 @@ define(['jquery', 'backbone'], function($, Backbone) {
 
         render: function(context) {
 
-            // el: $("#")
             var template = _.template($("#search_template").html());
 
             $(this.el).html(template(context));
+        },
+
+        events: {
+            "click input[type]" : "toSearch"
+        },
+
+        toSearch: function() {
+            var searchInput = $('#search_button'),
+                vals = searchInput.val().trim();
+            if(vals) {
+                alert("i am search " + vals);
+            }
+            searchInput.focus();
         }
-
-
     });
 
     return SearchView;
